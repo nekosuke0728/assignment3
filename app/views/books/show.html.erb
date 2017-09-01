@@ -1,0 +1,26 @@
+<h1>Books#show</h1>
+<table>
+	<tr><th width="100px">ID</th><td><%= @book.id %></td></tr>
+	<tr><th>タイトル</th><td><%= @book.title %></td></tr>
+	<tr><th>著者</th><td><%= @book.author %></td></tr>
+	<tr><th>価格</th><td><%= @book.price %>円</td></tr>
+	<tr><th>説明</th><td><%= @book.description %></td></tr>
+	<tr><th>評価</th><td><%= @book.evaluation %></td></tr>
+</table>
+<p class="link"><a href="/books">&lt;&lt; ※トップページに戻る</a></p>
+
+<%= form_for(@comment) do |f| %>
+	<tr><th>コメント</th><td><%= f.text_area :body %></td></tr>
+	<br>
+	<tr><th>ニックネーム</th><td><%= f.text_field :nickname %></td></tr>
+	<%= f.hidden_field :book_id, :value => @book.id %>
+	<%= f.submit "保存" %>
+<% end %>
+
+<% @book.comments.each do |comment| %>
+	<hr>
+	<tr><th>コメント：</th><td><%= comment.body %></td></tr>
+	<br>
+	<tr><th>ニックネーム：</th><td><%= comment.nickname %></td></tr>
+	<br>
+<% end %>

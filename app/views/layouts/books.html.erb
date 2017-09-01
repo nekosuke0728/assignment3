@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Books</title>
+		<%= csrf_meta_tags %>
+
+		<%= stylesheet_link_tag 'books', 'data-turbolink-track': 'relode' %>
+		<%= javascript_include_tag 'books.js', 'data-turbolinks-track': 'reload' %>
+	</head>
+	<body>
+		<div class="book">
+			<%= yield %>
+		</div>
+	</body>
+</html>
